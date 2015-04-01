@@ -29,7 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'simple_form'
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'uploadcare-rails', "~> 1.0"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

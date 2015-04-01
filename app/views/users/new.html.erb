@@ -1,0 +1,24 @@
+<% @page_title = "Join Writematic" %>
+<div class="Sign_Form">
+  <h1>Sign Up</h1>
+  <div class="box">
+  <%= form_for(@user) do |f|%>
+  <div class ="label"><%= f.label :username  %></div>
+  <div class="text"><%= f.text_field :username, placeholder: "Pick a Username", autofocus: true %>
+  <div class ="label"><%= f.label :name  %></div>
+  <div class="text"><%= f.text_field :name, placeholder: "Enter your Full Name", autofocus: true %>
+  <div class ="label"><%= f.label :email %></div>
+  <div class="text"><%= f.text_field :email, placeholder: "Enter Your Email" %></div>
+  <div class ="label"><%= f.label :password %></div>
+  <div class="text"><%= f.password_field :password, placeholder: "Make a Password"  %></div>
+</div>
+    <%= f.submit :Signup %>
+  <% end %>
+  <% if @user.errors.any? %>
+    <ul class="Signup_Errors">
+    <% for message_error in @user.errors.full_messages %>
+      <li>* <%= message_error %></li>
+    <% end %>
+    </ul>
+  <% end %>
+</div>

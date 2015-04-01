@@ -1,0 +1,10 @@
+<h1><%= @book.title %></h1>
+<h3>By <%= @book.author %></h3> 
+<iframe class="bookview" src="<%= @book.content %>-/inline/yes/">
+File not loading
+</iframe>
+<!-- <a class="embedly-card" href="<%= @book.content %>-/inline/yes/">Card</a>
+<script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script> -->
+
+<%= link_to "Back", books_path %>
+<%= link_to "Logout", logout_path, method: :post %> 

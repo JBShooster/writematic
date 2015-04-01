@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+
+ .image-preview-single {
+  padding: 10px 0;
+}
+
+.image-preview-single > img {
+  width: 128px;
+  height: 96px;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.warning {
+  font-color: red;
+  background-color: #FFE5A4;
+  border-style: solid;
+  border-color: #F27D24;
+  text-align: center;
+  padding: 20px;
+  width: auto;
+}
+
+.text-box{
+  width:300px;
+  height:100px;
+}
+
+.bookview{
+  display: block;
+  width:600px;
+  height:500px;
+}

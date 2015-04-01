@@ -1,0 +1,16 @@
+<h1>Writematic</h1>
+<h3>Got some reading to catch up on? We hear ya! Go ahead and login</h3>
+
+<div class= "box-login">
+  <%= form_tag login_path  do %>
+  <div class="label-login"><%= label_tag(:username)%></div>
+  <div class="text-login"><%= text_field_tag(:username, params[:user], placeholder: "  Enter Your Username", class: 'input-large', autofocus: true,)%></div>
+  <div class="label-login"><%= label_tag(:password)%></div>
+  <div class="text-login"><%= password_field_tag(:password, nil,  class: 'input-large-login', )%></div>
+</div>
+  <div class="login-login"><%= submit_tag("Log In", class: "btn btn-primary-login") %></div>
+  <% end %>
+<footer>
+  <span id ="signup-login"><%= link_to "Sign Up", new_user_path %></span>
+  <span id="about-login"><%= link_to "About Us", '/site/about' %></span>
+</footer>

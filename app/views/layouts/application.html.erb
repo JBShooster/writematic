@@ -4,9 +4,33 @@
   <title>Writematic</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
   <%= csrf_meta_tags %>
+  <%= include_uploadcare_widget_from_cdn version: "1.5.5", min: true %>
+  <%= uploadcare_settings %>
+  <!--
+    results in:
+    <script>
+      //<![CDATA[
+        UPLOADCARE_PUBLIC_KEY = "demopublickey";
+        .... more settings ...
+      //]]>
+    </script>
+   -->
 </head>
 <body>
+
+<% flash.each do |key, value| %>
+  <% if key == "error" %>
+    <%= content_tag :div, value, class: "warning" %>
+  <% elsif key == "alert" %>
+    <%= content_tag :div, value, class: "danger" %>
+  <% end %>
+<% end %>
+
 
 <%= yield %>
 

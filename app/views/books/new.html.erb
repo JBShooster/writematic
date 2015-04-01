@@ -1,0 +1,68 @@
+<h1>Let's publish your work</h1>
+<% if @book.errors.any? %>
+  <% @book.errors.full_messages.each do |error|%>
+  <p class="warning"> <%= error %> </p>
+<% end %>
+<% end %>
+
+<script> function installWidgetPreviewSingle(widget, img) {
+  widget.onChange(function(file) {
+    img.css('visibility', 'hidden');
+    img.attr('src', '');
+    if (file) {
+      file.done(function(fileInfo) {
+        var size = '' + (img.width() * 2) + 'x' + (img.height() * 2);
+        var previewUrl = fileInfo.cdnUrl + '-/scale_crop/' + size + '/center/';
+        img.attr('src', previewUrl);
+        img.css('visibility', 'visible');
+      }); 
+    }
+  });
+}
+ 
+$(function() {
+  $('.image-preview-single').each(function() {
+    installWidgetPreviewSingle(
+      uploadcare.SingleWidget($(this).children('input')),
+      $(this).children('img')
+    );
+  });
+});</script>
+
+<%= form_for(@book) do |f| %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :author %><br>
+    <%= f.text_field :author %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description%>
+  </div>
+  <div class="field">
+    <%= f.label :pages %><br>
+    <%= f.text_field :pages%>
+  </div>
+  <div class="field">
+    <%= f.label :cover %><br>
+    <%= uploadcare_uploader_field :book, :cover%>
+  </div>
+    <br>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= uploadcare_uploader_field :book, :content %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<br>
+<br>
+<%= link_to "Back", books_path %>
+<%= link_to "Logout", logout_path, method: :post %> 
+
