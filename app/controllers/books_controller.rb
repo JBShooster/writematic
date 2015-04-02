@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def index
-    # @user = User.find user_params[:username]
+    @user = session[:user_id]
     @category = params[:category]
     if @category
       @books = Book.where(category: @category)
@@ -17,16 +17,15 @@ class BooksController < ApplicationController
   def new
     @book = Book.new
     @categories = Category.all
-    @user = User.find_by_id(params[:user_id])
   end
 
   def create
     @book = Book.new(book_params)
+    @book.user_id = session[:user_id]
     if @book.save
       redirect_to books_path
     else
       render :new
-
     end
   end
 
@@ -35,6 +34,9 @@ class BooksController < ApplicationController
   end
 
   def destroy
+    book = Book.find params[:id]
+    book.destroy
+    redirect_to books_path
   end
 
   private
@@ -47,7 +49,8 @@ class BooksController < ApplicationController
       :pages,
       :hits,
       :category,
-      :publish_date)
+      :publish_date,
+      :user_id)
     end
 
   def user_params

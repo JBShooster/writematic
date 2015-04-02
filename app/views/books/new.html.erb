@@ -1,33 +1,9 @@
-<h1>Let's publish your work</h1>
+<div class="pagehead"><h1>Let's publish your work</h1></div>
 <% if @book.errors.any? %>
   <% @book.errors.full_messages.each do |error|%>
   <p class="warning"> <%= error %> </p>
 <% end %>
 <% end %>
-
-<script> function installWidgetPreviewSingle(widget, img) {
-  widget.onChange(function(file) {
-    img.css('visibility', 'hidden');
-    img.attr('src', '');
-    if (file) {
-      file.done(function(fileInfo) {
-        var size = '' + (img.width() * 2) + 'x' + (img.height() * 2);
-        var previewUrl = fileInfo.cdnUrl + '-/scale_crop/' + size + '/center/';
-        img.attr('src', previewUrl);
-        img.css('visibility', 'visible');
-      }); 
-    }
-  });
-}
- 
-$(function() {
-  $('.image-preview-single').each(function() {
-    installWidgetPreviewSingle(
-      uploadcare.SingleWidget($(this).children('input')),
-      $(this).children('img')
-    );
-  });
-});</script>
 
 <%= form_for(@book) do |f| %>
 
@@ -44,19 +20,23 @@ $(function() {
     <%= f.text_field :description%>
   </div>
   <div class="field">
-    <%= f.label :pages %><br>
-    <%= f.text_field :pages%>
+    <%= f.label :publish_year %><br>
+    <%= f.text_field :publish_date%>
   </div>
   <div class="field">
-    <%= f.label :cover %><br>
-    <%= uploadcare_uploader_field :book, :cover%>
+  <br>
+    <%= f.label :cover %>
+    <input data-path-value="true" data-images-only="true" id="book_cover" name="book[cover]" role="uploadcare-uploader" type="hidden">
+  <div class="uploadcare-widget" style="display: none;" data-status="ready">
   </div>
-    <br>
+  </div>
   <div class="field">
-    <%= f.label :content %><br>
-    <%= uploadcare_uploader_field :book, :content %>
+  <br>
+    <%= f.label :content %>
+    <input data-path-value="true" id="book_content" name="book[content]" role="uploadcare-uploader" type="hidden">
+  <div class="uploadcare-widget" style="display: none;" data-status="ready">
   </div>
-
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

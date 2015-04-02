@@ -1,4 +1,4 @@
-<h1>Writematic</h1>
+<div class="pagehead"><h1>Writematic</h1></div>
 <%= link_to "Publish My Work", new_book_path %>
 
 <div class="most-popular">
@@ -8,7 +8,8 @@
 <% end %>
 
 <%= form_tag books_path, method: :get, style: "display: inline;" do %>
-  <span id="view-all"><%= button_tag "View All Books", class: "button" %></span>
+  <span id="view-all">
+  <%= button_tag "View All Books", class: "button" %></span>
 <% end %>
 
 <%= link_to "Logout", logout_path, method: :post %>
@@ -27,11 +28,17 @@
   <div class="col-sm-10">
     <%= link_to "#{book.title}", "/books/#{book.id}"%>
     <br>
-    <b>By <%= book.author %></b>:
+    <b>Written by: <%= book.author %></b>
     <br><i>
     <%= book.description %>
     </i>
   </div>
+  <% if book.user_id == @user %>
+  Want to delete? It's your book
+  <%= button_to "X", book_path(book), :method => :delete %>
+  <% else %>
+  <%=  %>
+  <% end %>
 </div>
     
   <% end %>
