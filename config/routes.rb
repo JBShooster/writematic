@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'site/about'
+
   root :to => 'users#login'
 
   resources :users

@@ -2,19 +2,12 @@
 <%= link_to "Publish My Work", new_book_path %>
 
 <div class="most-popular">
-<p>Most Popular Books</p>
-<%=form_tag books_path, method: :get do %>
-<%= select_tag :category, options_from_collection_for_select(@categories, :id, :group, @category) %>
-<% end %>
 
-<%= form_tag books_path, method: :get, style: "display: inline;" do %>
-  <span id="view-all">
-  <%= button_tag "View All Books", class: "button" %></span>
-<% end %>
+
 
 <%= link_to "Logout", logout_path, method: :post %>
 
-
+<p>Most Popular Books</p>
 <div class= "container">
 <% @books.each do |book| %>
   <div class="row well well-lg" style="margin-top: 5px">
@@ -26,7 +19,7 @@
       <% end %>
     </div>
   <div class="col-sm-10">
-    <%= link_to "#{book.title}", "/books/#{book.id}"%>
+    <b><%= link_to "#{book.title}", "/books/#{book.id}"%></b>
     <br>
     <b>Written by: <%= book.author %></b>
     <br><i>

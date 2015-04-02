@@ -14,8 +14,8 @@ class UsersController < ApplicationController
       flash[:error] = "That username or email already exists. Try something different."
       redirect_to new_user_path
     elsif @user.save
-      session[:user_id] = user.id
-      redirect_to home_path
+      attempt_login
+      redirect_to books_path
     else
       flash[:error] = "Nuh uh uh. Try again."
       render :new

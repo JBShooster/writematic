@@ -14,7 +14,37 @@
  *= require_self
  */
 
+ body h3{
+  color:white;
+ }
 
+.field input{
+  color:black;
+}
+.box-login{
+  color:white;
+}
+body{
+  background-image: url("waves.jpg");
+}
+
+body p{
+  color: white;
+}
+
+
+
+body a{
+  color:blue;
+}
+
+iframe{
+  background-color: white;
+}
+
+div.field{
+  color:white;
+}
 .pagehead h1{
   background-color: black;
   color:#f1f1f1;
