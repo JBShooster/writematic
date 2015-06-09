@@ -21,11 +21,15 @@
 .field input{
   color:black;
 }
+
+.text-login input{
+  color:black;
+}
 .box-login{
   color:white;
 }
 body{
-  background-image: url("waves.jpg");
+  background-image: url("http://www.ucarecdn.com/7fccd641-29a7-4516-b9e0-f11b124ae661/waves.jpg");
 }
 
 body p{
