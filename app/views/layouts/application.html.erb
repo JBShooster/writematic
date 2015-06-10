@@ -4,11 +4,10 @@
   <title>Writematic</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="http://code.jquery.com/jquery-1.4.2.min.js" type="text/javascript"></script>  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> 
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  <script src="https://ucarecdn.com/widget/2.3.1/uploadcare/uploadcare.full.min.js" charset="utf-8"></script>
   <%= csrf_meta_tags %>
   <%= include_uploadcare_widget_from_cdn version: "1.5.5", min: true %>
   <%= uploadcare_settings %>
