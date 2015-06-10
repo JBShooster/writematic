@@ -7,11 +7,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> 
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-  <script src="https://ucarecdn.com/widget/2.3.1/uploadcare/uploadcare.full.min.js" charset="utf-8"></script>
+  
   <%= csrf_meta_tags %>
   <%= include_uploadcare_widget_from_cdn version: "1.5.5", min: true %>
   <%= uploadcare_settings %>
-  <!--
+  <script>
+  UPLOADCARE_CDN_BASE = "https://ucarecdn.com/";
+  </script>
+  <!-- 
     results in:
     <script>
       //<![CDATA[
@@ -19,7 +22,7 @@
         .... more settings ...
       //]]>
     </script>
-   -->
+    -->
 </head>
 <body>
 

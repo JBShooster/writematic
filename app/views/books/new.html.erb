@@ -26,14 +26,14 @@
   <div class="field">
   <br>
     <%= f.label :cover %>
-    <input data-path-value="true" data-images-only="true" id="book_cover" name="book[cover]" role="uploadcare-uploader" type="hidden">
+    <input data-path-value="true" data-images-only="true" id="book_cover" name="book[cover]" role="uploadcare-uploader" type="hidden" UPLOADCARE_CDN_BASE="https://ucarecdn.com/">
   <div class="uploadcare-widget" style="display: none;" data-status="ready">
   </div>
   </div>
   <div class="field">
   <br>
     <%= f.label :content %>
-    <input data-path-value="true" id="book_content" name="book[content]" role="uploadcare-uploader" type="hidden">
+    <input data-path-value="true" id="book_content" name="book[content]" role="uploadcare-uploader" type="hidden" UPLOADCARE_CDN_BASE="https://ucarecdn.com/">
   <div class="uploadcare-widget" style="display: none;" data-status="ready">
   </div>
   </div>
