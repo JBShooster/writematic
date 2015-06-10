@@ -1,8 +1,8 @@
 <div class="pagehead"><h1><%= @book.title %> <small>By <%= @book.author %></small></h1></div>
-<iframe class="bookview" src="https://<%= @book.content %>-/inline/yes/">
+<iframe class="bookview" src="<%= @book.content%>-/inline/yes/">
 File not loading
 </iframe>
-<!-- <a class="embedly-card" href="<%= @book.content %>-/inline/yes/">Card</a>
+<!-- <a class="embedly-card" href="-/inline/yes/">Card</a>
 <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script> -->
 
 <%= link_to "Back", books_path %>
