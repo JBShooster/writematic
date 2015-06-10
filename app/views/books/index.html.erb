@@ -14,7 +14,7 @@
 <% @books.each do |book| %>
   <div class="row well well-lg" style="margin-top: 5px">
     <div class="col-sm-2">
-     <% if book.cover.include? "http://" %>
+     <% if book.cover.include? "https://" %>
 
       <img src="<%= book.cover + "-/crop/100x100/center/-/inline/yes/"%>"/>
       <% else %>
